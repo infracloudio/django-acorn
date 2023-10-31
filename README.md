@@ -7,4 +7,4 @@ This is an Acorn for the sample Django Vote app following Django's Offical [Tuto
 
 ## Configure the Django App
 
-Laravel uses mariadb as the database and it is been used as the [services](https://docs.acorn.io/reference/acornfile#services-consuming) . If you are using Advanace Options on Acorn Platform you can provide the `laraveldbname`. By default it will be named as `djangodb`.
+Django uses mariadb as the database and it is been used as the [services](https://docs.acorn.io/reference/acornfile#services-consuming) . If you are using Advanace Options on Acorn Platform you can provide the `djangodbname`. By default it will be named as `djangodb`.
