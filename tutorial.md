@@ -7,7 +7,7 @@
 To deploy an application on Acorn we need to define our application as an Acornfile, which will produce the Acorn Image that we can deploy on the platform.  In this tutorial, we will explore how to provision a sample Django Application on Acorn.
 
 
-If you’re the kind of person who likes to skip to the end, you can deploy the sample application in your sandbox now and just start poking around in it.  Sandbox deployments in Acorn are restricted by size, and run for two hours, so it should provide plenty of time for you to evaluate and test anything. You can start them over as often as you like, or you can upgrade to a paid Pro account if you want to run something in production. 
+If you’re the kind of person who likes to skip to the end, you can [deploy the sample application in your sandbox now](https://acorn.io/run/ghcr.io/infracloudio/django-acorn:v4.%23.%23-%23?ref=slayer321&name=django) and just start poking around in it.  Sandbox deployments in Acorn are restricted by size, and run for two hours, so it should provide plenty of time for you to evaluate and test anything. You can start them over as often as you like, or you can upgrade to a paid Pro account if you want to run something in production. 
 
 If you want to follow along, I’ll walk through the steps to deploy the sample Vote  App using Acorn, described in the Django [official documentation](https://docs.djangoproject.com/en/4.2/intro/tutorial01/).
 
@@ -51,17 +51,17 @@ In this option you use the published Acorn application image to deploy the Vote 
 
    3.2. Provide a name "Django Sample Acorn”, use the default Region and provide the URL for the Acorn image and click Create.
 ```
-TODO <add the package name>
+ghcr.io/infracloudio/django-acorn:v4.#.#-#
 ```
-TODO | add the image here
+![](./assests/django-app-deployment-preview.png)
 
 _Note: The App will be deployed in the Acorn Sandbox Environment. As the App is provisioned on AcornPlatform in the sandbox environment it will only be available for 2 hrs and after that it will be shutdown. Upgrade to a pro account to keep it running longer_.
 
 4. Once the Acorn is running, you can access it by clicking the Endpoint or the redirect link.
    4.1. Running Application on Acorn
-   TODO | add the image
-   4.2. Running Articles app
-   TODO | add the image
+   ![](./assests/django-running-on-platform.png)
+   4.2. Running Vote app
+   ![](./assests/django-vote-app.png)
 
 
 ## Running the Application using acorn CLI
@@ -75,7 +75,7 @@ $ git clone https://github.com/infracloudio/django-acorn.git
 ```
 Once cloned here’s how the directory structure will look.
 
-TODO | add the image here
+![](./assests/django-root-dir.png)
 
 ### Understanding the Acornfile
 
@@ -84,7 +84,7 @@ We have the sample Django Application ready. Now to run the application we need 
 
 Below is the Acornfile for deploying the Vote Poll app that we created earlier:
 
-TODO | add the image
+![](./assests/django-acorn-file.png)
 
 There are 2 requirements for running Ruby on Rails Application
 - Application Itself
@@ -92,6 +92,7 @@ There are 2 requirements for running Ruby on Rails Application
 
 The above Acornfile has the following elements:
 
+- **Args**: Which is used to take the user args.
 - **Services**: Here we're using the [MariaDB](https://github.com/acorn-io/mariadb) service that is built into Acorn as an [Acorn Service](https://docs.acorn.io/reference/services).
 - **Containers**: We define a single container named web and define the following configurations:
   - **build**: details required to build the Django Application
@@ -108,8 +109,7 @@ $ acorn run -n django-app -i
 
 Below is what the output looks like.
 
-TODO | add the image
-
+![](./assests/django-local-run.png)
 
 ## The Vote Poll Application
 
@@ -119,6 +119,7 @@ As it is a simple Vote Poll application it provides CRUD features. It’ll consi
 
 On the homepage you will get the admin credentails which can be used to login as admin and you can add question for your vote app. 
 
+![](./assests/django-vote-app.png)
 
 ## Running the app in dev mode
 
@@ -144,7 +145,7 @@ $ acorn login ghcr.io
 Build and push the image with the below command.
 
 ```
-$ acorn build --push -t <add the image name>
+$ acorn build --push -t ghcr.io/infracloudio/django-acorn:v4.2.6-1
 ```
 Once the application is built and pushed you can use those images to run your application on Acorn Platform.
 
