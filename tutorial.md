@@ -41,7 +41,7 @@ The First way is the easiest one where, in just a few clicks you can deploy the 
 
 ## Running the application using Dashboard
 
-In this option you use the published Acorn application image to deploy the Vote Poll sample application in just a few clicks. It allows you to deploy your applications faster without any additional configurations. Let us see below how you can deploy the articles app to the Acorn platform dashboard.
+In this option you use the published Acorn application image to deploy the Vote Poll sample application in just a few clicks. It allows you to deploy your applications faster without any additional configurations. Let us see below how you can deploy the vote app to the Acorn platform dashboard.
 
 1. Login to the [Acorn Platform](https://acorn.io/auth/login)  using the Github Sign-In option with your Github user.
 2. Select the “Create Acorn” option.
