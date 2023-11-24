@@ -36,7 +36,7 @@ In the Acorn platform, there are two ways you can try this sample application.
 2. Using CLI
 
 
-The First way is the easiest one where, in just a few clicks you can deploy the Vote Poll application on the platform and start using it. However, if you want to customize the application or want to understand how you can run your own RoR applications using Acorn, use the second option.
+The First way is the easiest one where, in just a few clicks you can deploy the Vote Poll application on the platform and start using it. However, if you want to customize the application or want to understand how you can run your own Django applications using Acorn, use the second option.
 
 
 ## Running the application using Dashboard
@@ -86,7 +86,7 @@ Below is the Acornfile for deploying the Vote Poll app that we created earlier:
 
 ![](./assests/django-acorn-file.png)
 
-There are 2 requirements for running Ruby on Rails Application
+There are 2 requirements for running Django Application
 - Application Itself
 - DB
 
