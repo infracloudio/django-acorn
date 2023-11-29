@@ -1,26 +1,23 @@
 # Deploying a Sandbox Django Application
 
-[Django](https://www.djangoproject.com/) is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
-
-[Acorn](http://www.acorn.io) is a cloud computing platform with a big free sandbox that anyone can use by registering with a GitHub account. It is designed to simplify running modern  cloud-native apps on the public cloud. You use familiar development and deployment workflows based on mainstream container tools without having to deal with provisioning or configuring any underlying cloud resources. Basically it provides all the power of Kubernetes and Terraform, without any of the complexity.
-
-To deploy an application on Acorn we need to define our application as an Acornfile, which will produce the Acorn Image that we can deploy on the platform.  In this tutorial, we will explore how to provision a sample Django Application on Acorn.
+[Django](https://www.djangoproject.com/) is a high-level Python web framework known for its rapid development and clean design. Meanwhile,  [Acorn](http://www.acorn.io) offers a cloud computing platform, providing a free sandbox accessible with a GitHub account. Acorn simplifies running cloud-native apps on the public cloud, utilizing familiar development workflows without the need for provisioning or configuring underlying cloud resources. With Django's hassle-free web development and Acorn's streamlined cloud deployment, developers can focus on building robust applications without reinventing the wheel.
 
 
-If you’re the kind of person who likes to skip to the end, you can [deploy the sample application in your sandbox now](https://acorn.io/run/ghcr.io/infracloudio/django-acorn:v4.%23.%23-%23?ref=slayer321&name=django) and just start poking around in it.  Sandbox deployments in Acorn are restricted by size, and run for two hours, so it should provide plenty of time for you to evaluate and test anything. You can start them over as often as you like, or you can upgrade to a paid Pro account if you want to run something in production. 
+[Acorn](http://www.acorn.io) is a lightweight deployment framework that makes developers productive and efficient by encapsulating both the application and its associated dependencies, including cloud services, within a singular [Acornfile](https://docs.acorn.io/reference/acornfile). In this tutorial, we will deploy a sample Django application from the [official documentation](https://docs.djangoproject.com/en/4.2/intro/tutorial01/) on the Acorn cloud platform.This Django app is sample vote application.
 
-If you want to follow along, I’ll walk through the steps to deploy the sample Vote  App using Acorn, described in the Django [official documentation](https://docs.djangoproject.com/en/4.2/intro/tutorial01/).
+
+If you want to skip to the end, just click [Run in Acorn](https://acorn.io/run/ghcr.io/infracloudio/django-acorn:v4.%23.%23-%23?ref=slayer321&name=django) to launch the app immediately in a free sandbox environment. All you need to join is a GitHub ID to create an account.
 
 _Note: Everything shown in this tutorial can be found in [this repository](https://github.com/infracloudio/django-acorn.git)_.
 
 
 ## Pre-requisites
 
-- [Acorn CLI](https://docs.acorn.io/installation/installing)
-- Github account to sign up for the Acorn Platform.
+- Acorn CLI: The CLI allows you to interact with the Acorn Runtime as well as Acorn to deploy and manage your applications. Refer to the [Installation documentation](https://docs.acorn.io/installation/installing) to install Acorn CLI for your environment.
+- A GitHub account is required to sign up and use the Acorn Platform.
 
 ## Acorn Login
-Login to the [Acorn Platform](http://beta.acorn.io) using the Github Sign-In option with your Github user.
+Log in to the [Acorn Platform](http://beta.acorn.io) using the GitHub Sign-In option with your GitHub user.
 ![](./assests/acorn-login-page.png)
 
 After the installation of Acorn CLI for your OS, you can login to the Acorn platform.
@@ -29,17 +26,17 @@ $ acorn login beta.acorn.io
 ```
 
 ## Create the Django Application
-In this post we will create a simple Django Vote Poll app from the [official documentation](https://docs.djangoproject.com/en/4.2/intro/tutorial01/). It is a simple Vote Poll application that provides standard CRUD features that let people view polls and vote in them. An admin site that lets you add, change, and delete polls.
+In this tutorial we will create a simple Django Vote Poll app from the [official documentation](https://docs.djangoproject.com/en/4.2/intro/tutorial01/). It is a simple Vote Poll application that provides standard CRUD features that let people view polls and vote in them. An admin site that lets you add, change, and delete polls.
 
 In the Acorn platform, there are two ways you can try this sample application.
 1. Using Acorn platform dashboard.
 2. Using CLI
 
 
-The First way is the easiest one where, in just a few clicks you can deploy the Vote Poll application on the platform and start using it. However, if you want to customize the application or want to understand how you can run your own Django applications using Acorn, use the second option.
+The first way is the easiest one where, in just a few clicks you can deploy the Vote Poll application on the platform and start using it. However, if you want to customize the application or want to understand how you can run your own Django applications using Acorn, use the second option.
 
 
-## Running the application using Dashboard
+## Deploying Using Acorn Dashboard
 
 In this option you use the published Acorn application image to deploy the Vote Poll sample application in just a few clicks. It allows you to deploy your applications faster without any additional configurations. Let us see below how you can deploy the vote app to the Acorn platform dashboard.
 
@@ -50,9 +47,9 @@ In this option you use the published Acorn application image to deploy the Vote 
 ![](./assests/select-from-acorn-image.png)
 
    3.2. Provide a name "Django Sample Acorn”, use the default Region and provide the URL for the Acorn image and click Create.
-```
-ghcr.io/infracloudio/django-acorn:v4.#.#-#
-```
+   ```
+   ghcr.io/infracloudio/django-acorn:v4.#.#-#
+   ```
 ![](./assests/django-app-deployment-preview.png)
 
 _Note: The App will be deployed in the Acorn Sandbox Environment. As the App is provisioned on AcornPlatform in the sandbox environment it will only be available for 2 hrs and after that it will be shutdown. Upgrade to a pro account to keep it running longer_.
@@ -64,7 +61,7 @@ _Note: The App will be deployed in the Acorn Sandbox Environment. As the App is 
    ![](./assests/django-vote-app.png)
 
 
-## Running the Application using acorn CLI
+## Deploy Using Acorn CLI
 As mentioned previously, running the acorn application using CLI lets you understand the Acornfile. With the CLI option, you can customize the sample app to your requirement or use your Acorn knowledge to run your own Django application.
 
 To run the application using CLI you first need to clone the source code repository on your machine.
@@ -84,7 +81,33 @@ We have the sample Django Application ready. Now to run the application we need 
 
 Below is the Acornfile for deploying the Vote Poll app that we created earlier:
 
-![](./assests/django-acorn-file.png)
+```
+args: {
+  djangodbname: "djangodb"
+}
+
+services: db: {
+  image: "ghcr.io/acorn-io/mariadb:v10.11.5-1"
+    serviceArgs: {
+      dbName: args.djangodbname
+  }
+}
+containers: web: {
+  build: {
+    context:    "./mysite"
+    dockerfile: "./mysite/Dockerfile"
+	}
+  ports: publish: "8000:8000/http"
+	if args.dev {dirs: "/app": "./mysite"}
+	env: {
+    MARIADB_USER:          "@{service.db.secrets.admin.username}"
+    MARIADB_ROOT_PASSWORD: "@{service.db.secrets.admin.password}"
+    MARIADB_HOST:          "@{service.db.address}"
+    MARIADB_PORT:          "@{service.db.port.3306}"
+    MARIADB_DATABASE:      "@{service.db.data.dbName}"
+	}
+}
+```
 
 There are 2 requirements for running Django Application
 - Application Itself
@@ -131,8 +154,6 @@ $ acorn dev -n django .
 
 ## Push an artifact to a registry
 
-
-
 Using the Dev mode you can easily modify the application as per your requirement and once the application is working as expected and is ready to be built and packaged, push it to a registry. You can push it to any OCI registry. We will use Github Container Registry in this example. Once published, you can use the acorn image to deploy it directly in the Acorn platform using the dashboard or CLI, as described previously.
 
 ### Log in to the registry
@@ -156,4 +177,4 @@ Once the application is built and pushed you can use those images to run your ap
 3. Remove the Acorn by selecting the Remove option from your Acorn dashboard.
 
 ## Conclusion
-In this tutorial we show how we can use the Acornfile and get our Django application up and running and it’s very easy to make changes to the Application file when you are developing it without the need of restarting your application. And If you are looking to run the application directly you can run it on Acorn Platform by providing the image name. 
+In this tutorial we saw how we can use the Acornfile and get our Django application up and running and it’s very easy to make changes to the Application file when you are developing it without the need of restarting your application. And If you are looking to run the application directly you can run it on Acorn Platform by providing the image name. 
