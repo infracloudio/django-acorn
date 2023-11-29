@@ -72,7 +72,17 @@ $ git clone https://github.com/infracloudio/django-acorn.git
 ```
 Once cloned here’s how the directory structure will look.
 
-![](./assests/django-root-dir.png)
+```
+.
+├── Acornfile
+├── django.svg
+├── LICENSE
+├── mysite
+│   ├── db-script.sh
+|   |.....
+│   └── requirements.txt
+└── README.md
+```
 
 ### Understanding the Acornfile
 
