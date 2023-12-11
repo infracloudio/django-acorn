@@ -31,7 +31,7 @@ $ acorn login
 
 ## Create the Django Application
 
-For this tutorial, we will create a basic vote poll application which is part of get started guide of the offical [documentation](https://docs.djangoproject.com/en/4.2/intro/tutorial01/). Vote poll application provides standard CRUD features, such as viewing polls and vote in them. Futhermore an admin site which comes by default by Django, will allow to add, change, delete polls. So, building this project is easy as following the get started steps, and for deploying this application on Acorn Platform, we have two ways:
+For this tutorial, we will create a basic vote poll application which is part of get started guide of the offical [documentation](https://docs.djangoproject.com/en/4.2/intro/tutorial01/). Vote poll application provides standard CRUD features, such as viewing polls and vote in them. Futhermore, an admin site which comes by default by Django, will allow to add, change, delete polls. So, building this project is easy as following the get started steps, and for deploying this application on Acorn Platform, we have two ways:
 
 1. Using Acorn platform dashboard.
 2. Using CLI
