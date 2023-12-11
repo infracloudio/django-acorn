@@ -1,4 +1,4 @@
-# Deploying a Sandbox Django Application
+# Deploying your Django Application on Acorn.
 
 Django stands out as a renowned, free, and open-source web framework, rooted in Python. It's known for its high-level capabilities, enabling rapid development and clean, pragmatic design. It simplifies the creation of secure and maintainable websites and backends, allowing developers to focus more on the unique aspects of their site rather than the boilerplate code.
 
