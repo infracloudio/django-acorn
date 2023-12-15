@@ -8,7 +8,7 @@ Acorn platform is based on the free and open source [Acorn Runtime](https://www.
 
 This tutorial will guide you through deploying a sample Django application, specifically a voting app as described in the Django [official documentation](https://docs.djangoproject.com/en/4.2/intro/tutorial01/), on the Acorn cloud platform.
 
-If you want to skip to the end, just click the link below to launch the app immediately in a free sandbox environment. All you need to join the Acorn platform is your GitHub ID. Click below to create your free account.
+If you want to skip to the end, just click the link below to launch the app immediately in a free sandbox environment. All you need to join the Acorn platform is your GitHub ID. 
 
 [![Run in Acorn](https://acorn.io/v1-ui/run/badge?image=ghcr.io+infracloudio+django-acorn:v%23.%23.%23-%23&ref=samkulkarni20)](https://acorn.io/run/ghcr.io/infracloudio/django-acorn:v%23.%23.%23-%23?ref=samkulkarni20)
 
